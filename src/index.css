@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rye&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Rye&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -8,16 +9,17 @@
 
 html,
 body {
-  height: 100%;
   width: 100%;
   overflow-x: hidden;
+  /*cursor: url('/src/assets/cursor.png') 8 8, auto;*/
+
 }
 
 body {
   margin: 0;
   background: #000;
   color: #fff;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+  font-family: 'Montserrat', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
     Arial, "Apple Color Emoji", "Segoe UI Emoji";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -51,7 +53,7 @@ a {
   left: 0;
   right: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(0, 0, 0, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -109,13 +111,36 @@ a {
 
 .navbar-links {
   display: none;
-  gap: 20px;
-  font-size: 13px;
+  gap: 36px;
+  font-size: 18px;
+  letter-spacing: 0.6px;
 }
 
 .navbar-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  position: relative;
+}
+
+.navbar-link:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-link:hover::after {
+  width: 100%;
 }
 
 .navbar-burger {
@@ -153,15 +178,16 @@ a {
 
 .nav-overlay {
   position: fixed;
-  top: var(--navbar-height);
+  top: 0; 
   left: 0;
   width: 100vw;
-  height: calc(100vh - var(--navbar-height));
+  height: 100dvh;
   z-index: 900;
   background: rgba(0, 0, 0, 0.98);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: var(--navbar-height);
 }
 
 .nav-overlay-inner {
@@ -198,7 +224,7 @@ a {
   }
 
   .navbar-title {
-    font-size: 42px;
+    font-size: 37px;
   }
 
   .navbar-subtitle {
