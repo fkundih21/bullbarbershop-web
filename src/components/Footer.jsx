@@ -33,7 +33,7 @@ export default function Footer() {
         
       </div>
 
-      <p className="text-center text-[10px] text-white/25 tracking-wide select-none">
+      <p className="text-center mt-1 text-[10px] text-white/25 tracking-wide select-none">
         Made by Fran
       </p>
     </footer>
