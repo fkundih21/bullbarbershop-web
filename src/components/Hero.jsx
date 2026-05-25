@@ -8,11 +8,10 @@ export default function Hero() {
     >
       {/* Pozadinska slika s overlay-om */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-35 grayscale scale-110 -translate-y-[8%]"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-25 grayscale scale-110 -translate-y-[8%]"
         style={{ backgroundImage: `url(${heroImg})` }}
       ></div>
       
-      {/* Gradient na dnu za glatki prijelaz u iduću sekciju */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/50 via-transparent to-black"></div>
       
       <div className="relative z-10 flex flex-col items-center w-full max-w-4xl -translate-y-[5vh] " data-aos="fade-up" data-aos-duration="1200">
