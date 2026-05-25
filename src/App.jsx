@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -36,6 +36,8 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <Analytics />
+      <SpeedInsights />
     </div>
   )
 }
