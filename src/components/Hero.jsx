@@ -8,7 +8,7 @@ export default function Hero() {
     >
       {/* Pozadinska slika s overlay-om */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-55 grayscale scale-110 -translate-y-[8%]"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-24 grayscale scale-110 -translate-y-[8%]"
         style={{ backgroundImage: `url(${heroImg})` }}
       ></div>
       
