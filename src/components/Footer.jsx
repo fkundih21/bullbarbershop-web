@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#050505] py-10">
+    <footer className="border-t border-white/10 bg-[#050505] pt-10 pb-3">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Lijeva strana (Logo tekst i grad) */}
@@ -32,6 +32,10 @@ export default function Footer() {
         </div>
         
       </div>
+
+      <p className="text-center text-[10px] text-white/25 tracking-wide select-none">
+        Made by Fran
+      </p>
     </footer>
   )
 }

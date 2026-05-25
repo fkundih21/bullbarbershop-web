@@ -4,7 +4,6 @@ import logo from '../assets/bull-logo.png'
 const navItems = [
   { href: '#home', label: 'Početna' },
   { href: '#about', label: 'O nama' },
-  { href: '#staff', label: 'Zaposlenici' },
   { href: '#prices', label: 'Cjenik' },
   { href: '#contact', label: 'Kontakt' },
 ]

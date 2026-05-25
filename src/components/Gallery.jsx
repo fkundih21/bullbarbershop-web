@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import s1 from '../assets/s1.jpg'
 
 const importedGallery = import.meta.glob('../assets/s{1,2,3,4,5,6,7,8}.jpg', {
@@ -11,6 +12,12 @@ const galleryImages = Array.from({ length: 8 }, (_, i) => {
 })
 
 export default function Gallery() {
+  const [activeIdx, setActiveIdx] = useState(null)
+
+  const handleImageTap = (idx) => {
+    setActiveIdx((current) => (current === idx ? null : idx))
+  }
+
   return (
     <section id="gallery" className="py-24 bg-black border-t border-b border-white/5">
       <div className="mx-auto max-w-7xl px-4">
@@ -25,21 +32,32 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {galleryImages.map((src, idx) => (
-            <div
-              key={`gallery-${idx + 1}`}
-              className="aspect-square rounded-xl overflow-hidden group border border-white/10"
-              data-aos="fade-up"
-              data-aos-delay={idx * 150}
-            >
-              <img
-                src={src}
-                alt={`Galerija ${idx + 1}`}
-                loading="lazy"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-pointer"
-              />
-            </div>
-          ))}
+          {galleryImages.map((src, idx) => {
+            const isActive = activeIdx === idx
+
+            return (
+              <button
+                key={`gallery-${idx + 1}`}
+                type="button"
+                onClick={() => handleImageTap(idx)}
+                className="w-full aspect-square rounded-xl overflow-hidden border border-white/10 p-0 bg-transparent cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]/60"
+                data-aos="fade-up"
+                data-aos-delay={idx * 150}
+                aria-pressed={isActive}
+                aria-label={`Galerija ${idx + 1}${isActive ? ', odabrano' : ''}`}
+              >
+                <img
+                  src={src}
+                  alt=""
+                  loading="lazy"
+                  draggable={false}
+                  className={`w-full h-full object-cover transition-all duration-500 grayscale ${
+                    isActive ? 'grayscale-0 scale-110' : 'scale-100'
+                  } md:hover:grayscale-0 md:hover:scale-110`}
+                />
+              </button>
+            )
+          })}
         </div>
       </div>
     </section>
